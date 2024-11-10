@@ -6,8 +6,10 @@ import org.mql.bank_account_service.entities.BankAccount;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
+import java.util.stream.IntStream;
 
 @Component
 public class AccountMapper {
@@ -17,6 +19,8 @@ public class AccountMapper {
          BeanUtils.copyProperties(bankAccount,bankAccountResponseDTO);
 
 
+
+
     return bankAccountResponseDTO;
     }
 
@@ -24,7 +28,7 @@ public class AccountMapper {
          BankAccount bankAccount=new BankAccount();
          BeanUtils.copyProperties(bankAccountRequestDTO,bankAccount);
         bankAccount.setId(UUID.randomUUID().toString());
-        bankAccount.setCreateAt(new Date());
+        bankAccount.setCreateAt(LocalDate.now());
 
         return bankAccount;
     }

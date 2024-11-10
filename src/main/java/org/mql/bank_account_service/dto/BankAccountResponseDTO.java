@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.mql.bank_account_service.enums.AccountType;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Data
 @NoArgsConstructor
@@ -16,7 +17,7 @@ import java.util.Date;
 public class BankAccountResponseDTO {
 
     private String id;
-    private Date createAt;
+    private LocalDate createAt;
     private Double balance;
     private String currency;
     private AccountType type;

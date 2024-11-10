@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.mql.bank_account_service.enums.AccountType;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Entity
 @Data@NoArgsConstructor@AllArgsConstructor
@@ -19,7 +20,7 @@ public class BankAccount {
 
     @Id
     private String id;
-    private Date createAt;
+    private LocalDate createAt;
     private Double balance;
     private String currency;
     @Enumerated(EnumType.STRING)
