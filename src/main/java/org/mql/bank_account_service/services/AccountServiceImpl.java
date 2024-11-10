@@ -2,9 +2,11 @@ package org.mql.bank_account_service.services;
 
 import org.mql.bank_account_service.dto.BankAccountRequestDTO;
 import org.mql.bank_account_service.dto.BankAccountResponseDTO;
+import org.mql.bank_account_service.dto.CustomerDTO;
 import org.mql.bank_account_service.entities.BankAccount;
 import org.mql.bank_account_service.mappers.AccountMapper;
 import org.mql.bank_account_service.repositories.BankAccountRepository;
+import org.mql.bank_account_service.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,11 +19,13 @@ public class AccountServiceImpl implements AccountService {
 
     private BankAccountRepository bankAccountRepository;
 
+
     private AccountMapper accountMapper;
 
-    public AccountServiceImpl(BankAccountRepository bankAccountRepository, AccountMapper accountMapper) {
+    public AccountServiceImpl(BankAccountRepository bankAccountRepository, AccountMapper accountMapper,CustomerRepository customerRepository) {
         this.bankAccountRepository = bankAccountRepository;
         this.accountMapper = accountMapper;
+
     }
 
     @Override
@@ -45,6 +49,8 @@ public class AccountServiceImpl implements AccountService {
 
 
     }
+
+
 
     @Override
     public BankAccountResponseDTO getAccountById(String id) {
